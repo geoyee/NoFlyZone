@@ -8,7 +8,7 @@ import urllib2
 # GEO系统仅是参考性质，在一些区域，DJI 大疆创新系统将采用通用管理，选取一些常规的参数划定限飞区，这与您所预备飞行区域的法律法规未必相符。因此，每位用户都有责任需要在飞行前自行查阅并确认相关法律法规，对自身的飞行安全负责。
 for lng in range(70, 140, 4):
     for lat in range(4, 54, 4):
-        url_temple = "https://www.dji.com/cn/api/geo/areas?lng=%s&lat=%s&country=CN&search_radius=250000&drone=spark&level=%s&zones_mode=total"
+        url_temple = "https://flysafe-api.dji.com/api/qep/geo/feedback/areas/in_rectangle?ltlat=%s&ltlng=%s&rblat=%s&rblng=%s&zones_mode=flysafe_website&drone=%s&level=0,1,2,3,7,8,10"
         # 包装头部
         firefox_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0',
                            'connection': "close",
@@ -27,7 +27,11 @@ for lng in range(70, 140, 4):
                            'x-service-version': "1.2.3"}
         # 构建请求
         # request = Request(url, headers=firefox_headers)
-        url = url_temple % (lng, lat, "1%2C2%2C4%2C7")
+        ltlat = lat + 4
+        rblat = lat
+        ltlng = lng
+        rblng = lng + 4
+        url = url_temple % (ltlat, ltlng, rblat, rblng, "dji-mini-4-pro")
 
         f = file("url.txt", "a+")  # 以追加的方式
         f.write(url)
