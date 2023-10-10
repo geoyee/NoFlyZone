@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ```
 
 2. 获取数据，转为shape
-3. 
+
 ```shell
 python down.py
 python parse.py
