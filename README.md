@@ -1,16 +1,24 @@
 # NoFlyZone
+
 下载大疆无人机禁飞区，生成shp文件
 
+## 环境
 
-## 首先运行下载禁飞区脚本
-```python
-down.py
+python3
+
+## 使用
+
+1. 获取代码安装依赖
+
+```shell
+git clone https://github.com/geoyee/NoFlyZone.git
+cd NoFlyZone
+pip install -r requirements.txt
 ```
-生成data.txt,数据文件
 
-## 然后运行
-```python
-parse.py
+2. 获取数据，转为shape
+3. 
+```shell
+python down.py
+python parse.py
 ```
-生成polygon.shp
-
