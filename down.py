@@ -8,8 +8,8 @@ urllib3.disable_warnings()
 # 此外，用户在部分区域例如野生保护区、人流密集的城镇等允许飞行的区域也可能收到飞行警示。以上这些无法完全自由飞行的区域，都统称为限飞区，包含了警示区、加强警示区、授权区、限高区、禁飞区等。
 # GEO系统将默认限制无人机在可能引起安全问题区域起飞或飞行。用户如需在该区域执行飞行，可通过已认证的DJI账户，并准备相关材料申请临时解禁。此项解禁功能并不适用于高度敏感的区域。
 # GEO系统仅是参考性质，在一些区域，DJI 大疆创新系统将采用通用管理，选取一些常规的参数划定限飞区，这与您所预备飞行区域的法律法规未必相符。因此，每位用户都有责任需要在飞行前自行查阅并确认相关法律法规，对自身的飞行安全负责。
-for lng in range(70, 140, 4):
-    for lat in range(4, 54, 4):
+for lng in range(-180, 180, 4):
+    for lat in range(-90, 90, 4):
         url_temple = "https://flysafe-api.dji.com/api/qep/geo/feedback/areas/in_rectangle?ltlat=%s&ltlng=%s&rblat=%s&rblng=%s&zones_mode=flysafe_website&drone=%s&level=0,1,2,3,7,8,10"
 
         firefox_headers = {
